@@ -6,19 +6,20 @@ To begin with, I'll be happy just to see a list of contacts.
 
 Edited output of `sdptool browse _phoneMACAddress_`:
 
-> Service Name: OBEX Phonebook Access Server
-> Service RecHandle: 0x10009
-> Service Class ID List:
->   "Phonebook Access - PSE" (0x112f)
-> Protocol Descriptor List:
->   "L2CAP" (0x0100)
->   "RFCOMM" (0x0003)
->     Channel: 19
->   "OBEX" (0x0008)
-> Profile Descriptor List:
->   "Phonebook Access" (0x1130)
->     Version: 0x0100
-
+```
+Service Name: OBEX Phonebook Access Server
+Service RecHandle: 0x10009
+Service Class ID List:
+  "Phonebook Access - PSE" (0x112f)
+Protocol Descriptor List:
+  "L2CAP" (0x0100)
+  "RFCOMM" (0x0003)
+    Channel: 19
+  "OBEX" (0x0008)
+Profile Descriptor List:
+  "Phonebook Access" (0x1130)
+    Version: 0x0100
+```
 
 Documentation
 -------------
