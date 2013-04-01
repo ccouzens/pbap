@@ -6,7 +6,7 @@ To begin with, I'll be happy just to see a list of contacts.
 
 Edited output of `sdptool browse _phoneMACAddress_`:
 
-```
+<pre>
 Service Name: OBEX Phonebook Access Server
 Service RecHandle: 0x10009
 Service Class ID List:
@@ -19,7 +19,7 @@ Protocol Descriptor List:
 Profile Descriptor List:
   "Phonebook Access" (0x1130)
     Version: 0x0100
-```
+</pre>
 
 Documentation
 -------------
