@@ -32,3 +32,5 @@ Documentation
 [OpenOBEX code](https://www.gitorious.org/openobex)
 
 [Bluetooth Programming for Linux](http://people.csail.mit.edu/albert/bluez-intro/)
+
+[Bluetooth service classes (including PBAP)](https://www.bluetooth.org/Technical/AssignedNumbers/service_discovery.htm)
