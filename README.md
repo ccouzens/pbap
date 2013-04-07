@@ -34,3 +34,6 @@ Documentation
 [Bluetooth Programming for Linux](http://people.csail.mit.edu/albert/bluez-intro/)
 
 [Bluetooth service classes (including PBAP)](https://www.bluetooth.org/Technical/AssignedNumbers/service_discovery.htm)
+
+[BlueZ gitweb](https://git.kernel.org/cgit/bluetooth/bluez.git)
+The documentation for BlueZ seems to be the code itself.
