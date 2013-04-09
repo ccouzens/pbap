@@ -1,11 +1,12 @@
 CC=clang
+CFLAGS=-g
 LDLIBS=-lbluetooth
 
-ALL: pbap_client README.html
+ALL: local_scan README.html
 
 README.html: README.md
 	markdown README.md > README.html
 
 clean:
 	rm -f README.html
-	rm -f pbap_client
+	rm -f local_scan

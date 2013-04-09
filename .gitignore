@@ -16,5 +16,5 @@
 *.out
 *.app
 
-pbap_client
+local_scan
 README.html
