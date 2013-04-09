@@ -23,9 +23,15 @@ int main(int argc, const char* argv[] ) {
   }
   printf("%d devices found\n", num_rsp);
   for(int i = 0; i < num_rsp; i++) {
-    char address[19] = {0};
-    ba2str(&(devices + i)->bdaddr, address);
-    printf("%d %s\n", i, address);
+    char address[19] = { 0 };
+    char name[248] = { 0 };
+    bdaddr_t *bd_addr = &(devices + i)->bdaddr;
+    ba2str(bd_addr, address);
+    if (hci_read_remote_name(sock, bd_addr, sizeof(name), name, 0) != 0 ) {
+      printf("couldn't identify name of %s\n", address);
+      strncpy(name, "[Unknown]", sizeof(name));
+    }
+    printf("%d %s: %s\n", i, address, name);
   }
   free(devices);
   if (close(sock) < 0) {
