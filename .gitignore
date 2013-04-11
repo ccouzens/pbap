@@ -17,4 +17,5 @@
 *.app
 
 local_scan
+port_connect
 README.html
