@@ -37,3 +37,5 @@ Documentation
 
 [BlueZ gitweb](https://git.kernel.org/cgit/bluetooth/bluez.git)
 The documentation for BlueZ seems to be the code itself.
+
+[Gnome Bluetooth UI](https://developer.gnome.org/gnome-bluetooth/stable/BluetoothChooser.html)
