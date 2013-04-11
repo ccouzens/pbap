@@ -26,6 +26,7 @@ if __name__ == '__main__':
     raise Exception("No PBAP servers found")
   pbap_server = pbap_servers[0]
   sock = BluetoothSocket( RFCOMM )
-  sock.connect((target_address, pbap_server['port']))
-  print "Socket established"
+  port = pbap_server['port']
+  sock.connect((target_address, port))
+  print "Socket established on port %d" % port
   sock.close()
