@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <bluetooth/bluetooth.h>
+#include <bluetooth/sdp.h>
+#include <bluetooth/sdp_lib.h>
 
 int main(int argc, char **argv)
 {
@@ -15,4 +17,6 @@ int main(int argc, char **argv)
     exit(EXIT_FAILURE);
   }
 
+  uuid_t pbap_server_service_class_uuid;
+  sdp_uuid32_create(&pbap_server_service_class_uuid, PBAP_PSE_SVCLASS_ID);
 }
