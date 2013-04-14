@@ -18,4 +18,5 @@
 
 local_scan
 port_connect
+sdp_find_pbap
 README.html
