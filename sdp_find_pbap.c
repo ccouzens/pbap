@@ -17,15 +17,17 @@ int main(int argc, char **argv)
     exit(EXIT_FAILURE);
   }
   uint8_t port;
-  uuid_t svc_uuid;
+  uuid_t svc_uuid, profile_uuid;
   sdp_uuid16_create(&svc_uuid, PBAP_PSE_SVCLASS_ID);
+  sdp_uuid16_create(&profile_uuid, PBAP_SVCLASS_ID);
   sdp_session_t *session = sdp_connect( BDADDR_ANY, &target, 0);
   if (session == NULL) {
     perror("connecting to SDP");
     exit(EXIT_FAILURE);
   }
-  sdp_list_t *response_list = NULL, *search_list, *attrid_list;
-  search_list = sdp_list_append( NULL, &svc_uuid );
+  sdp_list_t *response_list = NULL, *search_list = NULL, *attrid_list;
+  search_list = sdp_list_append( search_list, &svc_uuid );
+  search_list = sdp_list_append( search_list, &profile_uuid );
   uint32_t range = 0x0000ffff;
   attrid_list = sdp_list_append( NULL, &range);
   if (sdp_service_search_attr_req( session, search_list, SDP_ATTR_REQ_RANGE, attrid_list, &response_list) < 0){
