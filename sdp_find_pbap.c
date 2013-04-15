@@ -18,7 +18,7 @@ int main(int argc, char **argv)
   }
   uint8_t port;
   uuid_t svc_uuid;
-  sdp_uuid32_create(&svc_uuid, PBAP_PSE_SVCLASS_ID);
+  sdp_uuid16_create(&svc_uuid, PBAP_PSE_SVCLASS_ID);
   sdp_session_t *session = sdp_connect( BDADDR_ANY, &target, 0);
   if (session == NULL) {
     perror("connecting to SDP");
