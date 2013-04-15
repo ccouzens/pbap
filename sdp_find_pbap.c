@@ -41,12 +41,12 @@ int main(int argc, char **argv)
     }
     port = sdp_get_proto_port( proto_list, RFCOMM_UUID );
     printf("found service running on RFCOMM port %d\n", port);
-    sdp_list_free( proto_list, 0);
+    sdp_list_free( proto_list, NULL);
     sdp_record_free( rec );
   }
-  sdp_list_free( response_list, 0);
-  sdp_list_free( search_list, 0);
-  sdp_list_free( attrid_list, 0);
+  sdp_list_free( response_list, NULL);
+  sdp_list_free( search_list, NULL);
+  sdp_list_free( attrid_list, NULL);
   sdp_close( session );
   return 0;
 }
