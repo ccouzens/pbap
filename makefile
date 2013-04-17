@@ -1,6 +1,6 @@
 CC=clang
 CFLAGS=-g
-LDLIBS=-lbluetooth
+LDLIBS=-lbluetooth -lopenobex
 
 ALL: local_scan port_connect sdp_find_pbap README.html
 

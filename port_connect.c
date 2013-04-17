@@ -2,10 +2,15 @@
 #include <bluetooth/bluetooth.h>
 #include <unistd.h>
 #include <bluetooth/rfcomm.h>
-
+#include <openobex/obex.h>
 
 void print_usage(const char* program_name) {
   fprintf(stderr, "usage: %s bluetooth_mac rfcomm_port\n", program_name);
+}
+
+static void obex_event_cb(obex_t *handle, obex_object_t *obj, int mode,
+  int event, int obex_cmd, int obex_rsp)
+{
 }
 
 int main(int argc, const char* argv[] ) {
@@ -21,14 +26,14 @@ int main(int argc, const char* argv[] ) {
   }
   int port;
   port = atoi(argv[2]);
-  int s = socket(AF_BLUETOOTH, SOCK_STREAM, BTPROTO_RFCOMM);
-  struct sockaddr_rc addr = { 0 };
-  addr.rc_family = AF_BLUETOOTH;
-  addr.rc_channel = (uint8_t) port;
-  addr.rc_bdaddr = bd_addr;
-  if (connect(s, (struct sockaddr *)&addr, sizeof(addr)) < 0) {
+  obex_t *handle;
+  handle = OBEX_Init(OBEX_TRANS_BLUETOOTH, obex_event_cb, 0);
+  if (BtOBEX_TransportConnect(handle, BDADDR_ANY, &bd_addr, port) < 0) {
     perror("Couldn't connect");
+    exit(EXIT_FAILURE);
   }
-  close(s);
+
+  OBEX_TransportDisconnect(handle);
+  OBEX_Cleanup(handle);
 
 }
