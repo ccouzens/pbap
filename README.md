@@ -39,3 +39,7 @@ Documentation
 The documentation for BlueZ seems to be the code itself.
 
 [Gnome Bluetooth UI](https://developer.gnome.org/gnome-bluetooth/stable/BluetoothChooser.html)
+
+[OBEX spec](http://netwinder.osuosl.org/pub/netwinder/docs/nw/irda/IrOBEX12.pdf)
+
+[GOEP spec](https://www.bluetooth.org/docman/handlers/downloaddoc.ashx?doc_id=230912)
