@@ -1,4 +1,7 @@
-﻿using System;
+﻿using InTheHand.Net;
+using InTheHand.Net.Sockets;
+using InTheHand.Net.Bluetooth;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,6 +13,9 @@ namespace PBAP2
     {
         static void Main(string[] args)
         {
+            BluetoothAddress addr = BluetoothAddress.Parse(PhoneMAC.macAddress);
+            BluetoothClient c = new BluetoothClient();
+            c.Connect(addr, BluetoothService.PhonebookAccessPse);
         }
     }
 }
