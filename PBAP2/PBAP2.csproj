@@ -32,6 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Brecham.Obex">
+      <HintPath>..\packages\Brecham.Obex.1.7\lib\net\Brecham.Obex.dll</HintPath>
+    </Reference>
     <Reference Include="InTheHand.Net.Personal">
       <HintPath>..\packages\32feet.NET.3.5.0.0\lib\net\InTheHand.Net.Personal.dll</HintPath>
     </Reference>
