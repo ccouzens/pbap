@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Brecham.Obex;
+using System.IO;
 
 namespace PBAP2
 {
@@ -24,6 +25,13 @@ namespace PBAP2
             using (ObexClientSession obexClient = new ObexClientSession(c.GetStream(), UInt16.MaxValue))
             {
                 obexClient.Connect(PBAP_TARGET);
+                using (ObexGetStream stream = obexClient.Get("/telecom/pb", "x-bt/phonebook"))
+                {
+                    using (StreamReader reader = new StreamReader(stream, Encoding.UTF8))
+                    {
+                        Console.WriteLine(reader.ReadToEnd());
+                    }
+                };
             }
         }
     }
