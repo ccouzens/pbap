@@ -12,6 +12,10 @@ namespace PBAP2
 {
     class Program
     {
+        static readonly byte[] PBAP_TARGET = new byte[] {
+            0x79, 0x61, 0x35, 0xf0, 0xf0, 0xc5, 0x11, 0xd8, 0x09, 0x66,
+            0x08, 0x00, 0x20, 0x0c, 0x9a, 0x66
+        };
         static void Main(string[] args)
         {
             BluetoothAddress addr = BluetoothAddress.Parse(PhoneMAC.macAddress);
@@ -19,8 +23,7 @@ namespace PBAP2
             c.Connect(addr, BluetoothService.PhonebookAccessPse);
             using (ObexClientSession obexClient = new ObexClientSession(c.GetStream(), UInt16.MaxValue))
             {
-                Guid targetHeader = new Guid("796135f0-f0c5-11d8-0966-0800200c9a66");
-                obexClient.Connect(targetHeader.ToByteArray());
+                obexClient.Connect(PBAP_TARGET);
             }
         }
     }
