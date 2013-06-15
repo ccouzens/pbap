@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Brecham.Obex;
 using System.IO;
+using Thought.vCards;
 
 namespace PBAP2
 {
@@ -29,7 +30,19 @@ namespace PBAP2
                 {
                     using (StreamReader reader = new StreamReader(stream, Encoding.UTF8))
                     {
-                        Console.WriteLine(reader.ReadToEnd());
+                        while (!reader.EndOfStream)
+                        {
+                            vCardReader cardReader = new vCardStandardReader();
+                            vCard card;
+                            try
+                            {
+                                card = cardReader.Read(reader);
+                            } catch(ArgumentNullException) {
+                                Console.WriteLine("skipping");
+                                continue;
+                            }
+                            Console.WriteLine("not skipping " + card.GivenName + " " + card.FamilyName);
+                        }
                     }
                 };
             }
