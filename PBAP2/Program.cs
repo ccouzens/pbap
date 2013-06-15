@@ -26,25 +26,10 @@ namespace PBAP2
             using (ObexClientSession obexClient = new ObexClientSession(c.GetStream(), UInt16.MaxValue))
             {
                 obexClient.Connect(PBAP_TARGET);
-                using (ObexGetStream stream = obexClient.Get("/telecom/pb", "x-bt/phonebook"))
+                foreach (vCard card in Pbap.CardsFromObexClient(obexClient, PBAP2.VirtualFolders.TelecomPhoneBook))
                 {
-                    using (StreamReader reader = new StreamReader(stream, Encoding.UTF8))
-                    {
-                        while (!reader.EndOfStream)
-                        {
-                            vCardReader cardReader = new vCardStandardReader();
-                            vCard card;
-                            try
-                            {
-                                card = cardReader.Read(reader);
-                            } catch(ArgumentNullException) {
-                                Console.WriteLine("skipping");
-                                continue;
-                            }
-                            Console.WriteLine("not skipping " + card.GivenName + " " + card.FamilyName);
-                        }
-                    }
-                };
+                    Console.WriteLine(card.EmailAddresses.FirstOrDefault());
+                }
             }
         }
     }
